@@ -1,0 +1,143 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="Hastane.Site1" %>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="keywords" />
+    <meta name="description" />
+    <meta name="author" />
+    <link rel="shortcut icon" href="images/favicon.png" type="">
+    <title>Özel Plus Hastanesi </title>
+
+    <link rel="stylesheet" type="text/css" href="css/ekran.css" />
+    <link href="css/style.css" rel="stylesheet" />
+
+    <script runat="server"></script>
+</head>
+<body class="sub_page">
+    <form runat="server">
+        <div class="hero_area">
+            <!-- Header -->
+            <header class="header_section">
+                <div class="container">
+                    <nav class="navbar navbar-expand-lg custom_nav-container ">
+                        <a class="navbar-brand" href="Anasayfa.aspx">
+                            <span>Özel Plus Hastanesi
+                            </span>
+                        </a>
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="Anasayfa.aspx">AnaSayfa </a>
+                                </li>
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="hakkimizda.aspx">Hakkımızda <span class="sr-only"></span></a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="bölümlerimiz.aspx">Bölümlerimiz</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="hekimlerimiz.aspx">Hekimlerimiz</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a class="nav-link" href="iletisim.aspx">İletişim</a>
+                                </li>
+
+                            </ul>
+                            <a href="login.aspx" id="loginButton" style="padding: 10px 20px; border: none; border-radius: 25px; background-color: #57b846; color: #fff; font-size: 16px; text-align:center; cursor: pointer;">Giriş
+                                 <%:Session["doktor"]%>
+                            </a>
+                            <% if (Session["doktor"] != null) // eğer doktor sessionu varsa buton çalışmaya başlar
+                                { %>
+                            <asp:Button runat="server" ID="cikis" Text="Çıkış" Style="padding: 10px 20px; border: none; border-radius: 25px; background-color: #57b846; color: #fff; font-size: 16px; cursor: pointer; " OnClick="cikis_Click" CausesValidation="False" />
+                            <% } %>
+                        </div>
+                    </nav>
+                </div>
+            </header>
+            <!-- Header bitiş-->
+        </div>
+
+        <!-- Hakkımızda-->
+
+        <section class="about_section layout_padding">
+            <div class="container  ">
+                <asp:ContentPlaceHolder ID="body" runat="server">
+                </asp:ContentPlaceHolder>
+
+            </div>
+        </section>
+
+        <!-- Hakkımızda bitiş-->
+
+        <!-- footer  -->
+        <footer class="footer_section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-lg-3 footer_col">
+                        <div class="footer_contact">
+                            <h4>Bize Ulaşın
+                            </h4>
+                            <div class="contact_link_box">
+                                <a>
+                                    <span>Konum: Terazidere, 60. Yıl Cd. No:3, 34035 Bayrampaşa/İstanbul
+                                    </span>
+                                </a>
+                                <a>
+                                    <span>Telefon: +90 212808080
+                                    </span>
+                                </a>
+                                <a>
+                                    <span>Email: plushastanesi@gmail.com
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3 footer_col" style="margin-left:10px;">
+                        <div  style="margin-left:10px;">
+                            <h4>Hakkımızda
+                            </h4>
+                            <p class="hak"> 
+                                Özel İstanbul Hastanesi sizlerin için 7/24 uzman kadrosu ile çalışıyor. 
+                  Bizlere mail atarak ya da telefon ile arayarak ulaşabilirsiniz. Sağlıklı yaşam için düzenli beslenin
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-2 mx-auto footer_col">
+                        <div  style="margin-left:30px;">
+                            <h4>Bağlantılar
+                            </h4>
+                            <div class="footer_links">
+                                <a href="Anasayfa.aspx">Anasayfa
+                                </a>
+                                <a href="hakkimizda.aspx">Hakkımızda
+                                </a>
+                                <a href="bölümlerimiz.aspx">Bölümlerimiz
+                                </a>
+                                <a href="hekimlerimiz.aspx">Hekimlerimiz
+                                </a>
+                                <a href="iletisim.aspx">İletişim
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-left:100px;">
+                        <img src="images/İstanbul.jpg" />
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- footer bitiş -->
+
+    </form>
+
+
+</body>
+
+</html>
